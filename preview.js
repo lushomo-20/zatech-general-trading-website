@@ -40,10 +40,27 @@ function wrapContent() {
   });
 }
 
+function initInteractiveText() {
+  const items = Array.from(document.querySelectorAll('.interactive-text'));
+  if (!items.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('focus', entry.isIntersecting);
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  items.forEach((item) => observer.observe(item));
+}
+
 function init() {
   wrapContent();
   const saved = localStorage.getItem(STORAGE_KEY) || 'full';
   applyMode(saved);
+  initInteractiveText();
 }
 
 if (document.readyState === 'loading') {

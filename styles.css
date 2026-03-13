@@ -222,6 +222,26 @@ footer {
   border-radius: 8px;
 }
 
+.interactive-text {
+  transition: transform 0.35s ease, color 0.35s ease;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.interactive-text.focus {
+  transform: scale(1.03);
+  color: #103a33;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-text {
+    transition: none;
+  }
+  .interactive-text.focus {
+    transform: none;
+  }
+}
+
 @media (max-width: 720px) {
   nav { display: none; }
   .nav { justify-content: center; padding: 12px 0; }
