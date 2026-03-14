@@ -113,6 +113,17 @@ header {
   border: 1px solid rgba(14, 26, 26, 0.1);
 }
 
+.logo-animate {
+  animation: logoFloat 5s ease-in-out 1;
+}
+
+@keyframes logoFloat {
+  0% { transform: translateY(0) scale(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  40% { transform: translateY(-6px) scale(1.03); box-shadow: 0 10px 20px rgba(79, 111, 95, 0.2); }
+  70% { transform: translateY(-2px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+}
+
 .brand span {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
@@ -256,6 +267,9 @@ footer {
   }
   .interactive-text.focus {
     transform: none;
+  }
+  .logo-animate {
+    animation: none;
   }
 }
 
